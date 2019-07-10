@@ -10,6 +10,8 @@ ssd_mobilenet_v2_coco_2018_03_29<br>
 ```
 $cd ~/ncs2_tpu_test
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+$cp ./frozen_inference_graph.pb ssd_mobilenet_v2_coco_2018_03_29.pb
+$cp ./pipeline.config ssd_mobilenet_v2_coco_2018_03_29_pipeline.config
 $tar xvfz ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 $python3 /opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/mo_tf.py --input_model ssd_mobilenet_v2_coco_2018_03_29.pb --tensorflow_use_custom_operations_config ./opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/extensions/ssd_v2_support.json --tensorflow_object_detection_api_pipeline_config  ssd_mobilenet_v2_coco_2018_03_29_pipeline.config --data_type FP16
 ```
@@ -34,6 +36,7 @@ ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03<br>
 ```
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 $tar xvfz ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
+$cp ./tflite_graph.pb .
 $tflite_convert --output_file=output_tflite_graph.tflite --graph_def_file=tflite_graph.pb  --inference_type=QUANTIZED_UINT8  --input_arrays=normalized_input_image_tensor --output_arrays=TFLite_Detection_PostProcess,TFLite_Detection_PostProcess:1,TFLite_Detection_PostProcess:2,TFLite_Detection_PostProcess:3 --mean_values=128  --std_dev_values=128  --input_shapes=1,300,300,3 --change_concat_input_ranges=false  --allow_nudging_weights_to_use_fast_gemm_kernel=true --allow_custom_ops
 $edgetpu_compiler output_tflite_graph.tflite 
 ```
