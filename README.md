@@ -1,14 +1,14 @@
 
 **NCS2 model conversion**
 
+[OpenVino convert from tensorflow](https://docs.openvinotoolkit.org/latest/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_TensorFlow.html) 
+[richardstechnotes ssd mobilenet v2 ](https://richardstechnotes.com/2018/12/01/ssd_mobilenet_v2_coco-running-on-the-intel-neural-compute-stick-2/) 
+
 ```
 $cd ~/ncs2_tpu_test
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 $tar xvfz ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 ```
-
-[OpenVino convert from tensorflow](https://docs.openvinotoolkit.org/latest/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_TensorFlow.html) 
-[richardstechnotes ssd mobilenet v2 ](https://richardstechnotes.com/2018/12/01/ssd_mobilenet_v2_coco-running-on-the-intel-neural-compute-stick-2/) 
 
 **Note**, there is no INT8 support on MYRIAD.
 
