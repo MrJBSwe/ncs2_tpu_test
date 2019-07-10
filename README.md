@@ -1,8 +1,11 @@
 
 **NCS2 model conversion**
 
-
-ssd_mobilenet_v2_coco_2018_03_29
+```
+$cd ~/ncs2_tpu_test
+$wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+$tar xvfz ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+```
 
 [OpenVino convert from tensorflow](https://docs.openvinotoolkit.org/latest/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_TensorFlow.html) 
 [richardstechnotes ssd mobilenet v2 ](https://richardstechnotes.com/2018/12/01/ssd_mobilenet_v2_coco-running-on-the-intel-neural-compute-stick-2/) 
@@ -22,6 +25,10 @@ $./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_201
 
 **Model conversion for Coral TPU**<br>
 [TensorFlow frozen graph to a TensorFlow lite](https://medium.com/@teyou21/convert-a-tensorflow-frozen-graph-to-a-tflite-file-part-3-1ccdb3874c4a)  
+```
+$wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
+$tar xvfz ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
+```
 
 **Note,** Coral TPU supports only TensorFlow Lite models that are fully 8-bit quantized and then compiled specifically for the Edge TPU.
 
