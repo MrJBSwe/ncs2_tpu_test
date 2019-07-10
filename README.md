@@ -10,13 +10,15 @@ $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_co
 $tar xvfz ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 ```
 
-**Note**, there is no INT8 support on MYRIAD.
+**Note**, there is no INT8 support on MYRIAD.<br>
+<br>
+**ssd_mobilenet_v2_coco_2018_03_29**<br>
 
 ```
 $python3 /opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/mo_tf.py --input_model ssd_mobilenet_v2_coco_2018_03_29.pb --tensorflow_use_custom_operations_config ./opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/extensions/ssd_v2_support.json --tensorflow_object_detection_api_pipeline_config  ssd_mobilenet_v2_coco_2018_03_29_pipeline.config --data_type FP16
 ```
 
-Test converted model
+Test converted model<br>
 ```
 $cd ~/inference_engine_samples_build/intel64/Release/
 $./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_2018_03_29.xml  -i  path_video -d MYRIAD
@@ -25,6 +27,9 @@ $./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_201
 
 **Model conversion for Coral TPU**<br>
 [TensorFlow frozen graph to a TensorFlow lite](https://medium.com/@teyou21/convert-a-tensorflow-frozen-graph-to-a-tflite-file-part-3-1ccdb3874c4a)  
+
+<br>
+**ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03**<br>
 ```
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 $tar xvfz ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
