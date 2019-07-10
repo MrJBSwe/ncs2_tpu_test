@@ -11,8 +11,6 @@ ssd_mobilenet_v2_coco_2018_03_29<br>
 $cd ~/ncs2_tpu_test
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 $tar xvfz ssd_mobilenet_v2_coco_2018_03_29.tar.gz
-```
-```
 $python3 /opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/mo_tf.py --input_model ssd_mobilenet_v2_coco_2018_03_29.pb --tensorflow_use_custom_operations_config ./opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/extensions/ssd_v2_support.json --tensorflow_object_detection_api_pipeline_config  ssd_mobilenet_v2_coco_2018_03_29_pipeline.config --data_type FP16
 ```
 
@@ -27,17 +25,15 @@ $./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_201
 [TensorFlow frozen graph to a TensorFlow lite](https://medium.com/@teyou21/convert-a-tensorflow-frozen-graph-to-a-tflite-file-part-3-1ccdb3874c4a)<br>  
 
 
+**Note,** Coral TPU supports only TensorFlow Lite models that are fully 8-bit quantized and then compiled specifically for the Edge TPU.<br>
+<br>
+
 ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03<br>
 
 
 ```
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 $tar xvfz ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
-```
-
-**Note,** Coral TPU supports only TensorFlow Lite models that are fully 8-bit quantized and then compiled specifically for the Edge TPU.<br>
-<br>
-```
 $tflite_convert --output_file=output_tflite_graph.tflite --graph_def_file=tflite_graph.pb  --inference_type=QUANTIZED_UINT8  --input_arrays=normalized_input_image_tensor --output_arrays=TFLite_Detection_PostProcess,TFLite_Detection_PostProcess:1,TFLite_Detection_PostProcess:2,TFLite_Detection_PostProcess:3 --mean_values=128  --std_dev_values=128  --input_shapes=1,300,300,3 --change_concat_input_ranges=false  --allow_nudging_weights_to_use_fast_gemm_kernel=true --allow_custom_ops
 $edgetpu_compiler output_tflite_graph.tflite 
 ```
