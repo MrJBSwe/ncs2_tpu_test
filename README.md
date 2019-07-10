@@ -15,8 +15,8 @@ $python3 /opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/mo_tf.p
 
 Test converted model
 ```
-cd ~/inference_engine_samples_build/intel64/Release/
-./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_2018_03_29.xml  -i  path_video -d MYRIAD
+$cd ~/inference_engine_samples_build/intel64/Release/
+$./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_2018_03_29.xml  -i  path_video -d MYRIAD
 ```
 
 
