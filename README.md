@@ -30,14 +30,14 @@ $./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_201
 <br>
 **ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03**<br>
 <br>
+
 ```
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 $tar xvfz ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 ```
 
-**Note,** Coral TPU supports only TensorFlow Lite models that are fully 8-bit quantized and then compiled specifically for the Edge TPU.
-
-
+**Note,** Coral TPU supports only TensorFlow Lite models that are fully 8-bit quantized and then compiled specifically for the Edge TPU.<br>
+<br>
 ```
 $tflite_convert --output_file=output_tflite_graph.tflite --graph_def_file=tflite_graph.pb  --inference_type=QUANTIZED_UINT8  --input_arrays=normalized_input_image_tensor --output_arrays=TFLite_Detection_PostProcess,TFLite_Detection_PostProcess:1,TFLite_Detection_PostProcess:2,TFLite_Detection_PostProcess:3 --mean_values=128  --std_dev_values=128  --input_shapes=1,300,300,3 --change_concat_input_ranges=false  --allow_nudging_weights_to_use_fast_gemm_kernel=true --allow_custom_ops
 $edgetpu_compiler output_tflite_graph.tflite 
