@@ -20,7 +20,7 @@ $./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_201
 ```
 
 
-**Model conversion for Coral TPU**
+**Model conversion for Coral TPU**<br>
 [TensorFlow frozen graph to a TensorFlow lite](https://medium.com/@teyou21/convert-a-tensorflow-frozen-graph-to-a-tflite-file-part-3-1ccdb3874c4a)  
 
 **Note,** Coral TPU supports only TensorFlow Lite models that are fully 8-bit quantized and then compiled specifically for the Edge TPU.
