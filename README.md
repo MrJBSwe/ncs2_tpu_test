@@ -10,9 +10,9 @@ ssd_mobilenet_v2_coco_2018_03_29<br>
 ```
 $cd ~/ncs2_tpu_test
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+$tar xvfz ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 $cp ./frozen_inference_graph.pb ssd_mobilenet_v2_coco_2018_03_29.pb
 $cp ./pipeline.config ssd_mobilenet_v2_coco_2018_03_29_pipeline.config
-$tar xvfz ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 $python3 /opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/mo_tf.py --input_model ssd_mobilenet_v2_coco_2018_03_29.pb --tensorflow_use_custom_operations_config ./opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/extensions/ssd_v2_support.json --tensorflow_object_detection_api_pipeline_config  ssd_mobilenet_v2_coco_2018_03_29_pipeline.config --data_type FP16
 ```
 
