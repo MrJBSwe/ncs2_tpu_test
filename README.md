@@ -6,8 +6,7 @@
 
 **Note**, there is no INT8 support on MYRIAD.<br>
 <br>
-**ssd_mobilenet_v2_coco_2018_03_29**<br>
-
+ssd_mobilenet_v2_coco_2018_03_29<br>
 ```
 $cd ~/ncs2_tpu_test
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
@@ -27,9 +26,9 @@ $./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_201
 **Model conversion for Coral TPU**<br>
 [TensorFlow frozen graph to a TensorFlow lite](https://medium.com/@teyou21/convert-a-tensorflow-frozen-graph-to-a-tflite-file-part-3-1ccdb3874c4a)<br>  
 
-<br>
-**ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03**<br>
-<br>
+
+ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03<br>
+
 
 ```
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
