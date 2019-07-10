@@ -4,16 +4,15 @@
 [OpenVino convert from tensorflow](https://docs.openvinotoolkit.org/latest/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_TensorFlow.html) 
 [richardstechnotes ssd mobilenet v2 ](https://richardstechnotes.com/2018/12/01/ssd_mobilenet_v2_coco-running-on-the-intel-neural-compute-stick-2/) 
 
+**Note**, there is no INT8 support on MYRIAD.<br>
+<br>
+**ssd_mobilenet_v2_coco_2018_03_29**<br>
+
 ```
 $cd ~/ncs2_tpu_test
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 $tar xvfz ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 ```
-
-**Note**, there is no INT8 support on MYRIAD.<br>
-<br>
-**ssd_mobilenet_v2_coco_2018_03_29**<br>
-
 ```
 $python3 /opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/mo_tf.py --input_model ssd_mobilenet_v2_coco_2018_03_29.pb --tensorflow_use_custom_operations_config ./opt/intel/openvino_2019.1.144/deployment_tools/model_optimizer/extensions/ssd_v2_support.json --tensorflow_object_detection_api_pipeline_config  ssd_mobilenet_v2_coco_2018_03_29_pipeline.config --data_type FP16
 ```
@@ -30,6 +29,7 @@ $./object_detection_demo_ssd_async  -m ~/ncs2_tpu_test/ssd_mobilenet_v2_coco_201
 
 <br>
 **ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03**<br>
+<br>
 ```
 $wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 $tar xvfz ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
